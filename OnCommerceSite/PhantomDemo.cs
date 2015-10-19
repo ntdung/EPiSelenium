@@ -36,26 +36,22 @@ namespace OnCommerceSite
         public void TestLogin()
         {
             _driver.Navigate().GoToUrl(
-              "http://localhost:17000/Login/Index?returnUrl=%2Fen%2F"
+              "http://vnwks53:17000/Login/Index?returnUrl=%2Fen%2F"
             );
-            var registerForm = _driver.FindElement(By.XPath("//form[@action='/Login/RegisterAccount']"));
-            registerForm.FindElement(By.Id("Email")).SendKeys("a@aaa.com");
-            registerForm.FindElement(By.Id("Password")).SendKeys("Ntdung@1979");
-            registerForm.FindElement(By.Id("Password2")).SendKeys("Ntdung@1979");//
-            registerForm.FindElement(By.Id("Address_FirstName")).SendKeys("Dung");//Address_FirstName
-            registerForm.FindElement(By.Id("Address_LastName")).SendKeys("Nguyen");//Address_LastName
-            var loginForm = _driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']"));
-            loginForm.FindElement(By.Id("Email")).SendKeys("a@aaa.com");
-            loginForm.FindElement(By.Id("Password")).SendKeys("Ntdung@1979");
-            loginForm.FindElement(By.XPath("button[text()='Login']")).Submit();
-            //_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//input[@id='Email']")).SendKeys("a@aaa.com");
-            //_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//input[@id='Password']")).SendKeys("Ntdung@1979");
-            //_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//button[text()='Login']")).Submit();
+            new RegisterAccount(_driver).EnterAccountInfo();
 
-            Assert.AreEqual(
-              "Look what's new this week!",
-              _driver.FindElement(By.XPath("//div[@class='quicksilver site-wrapper']//strong")).Text
-            );
+            //var loginForm = _driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']"));
+            //loginForm.FindElement(By.Id("Email")).SendKeys("a@aaa.com");
+            //loginForm.FindElement(By.Id("Password")).SendKeys("Ntdung@1979");
+            //loginForm.FindElement(By.XPath("button[text()='Login']")).Submit();
+            ////_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//input[@id='Email']")).SendKeys("a@aaa.com");
+            ////_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//input[@id='Password']")).SendKeys("Ntdung@1979");
+            ////_driver.FindElement(By.XPath("//form[@action='/Login/InternalLogin']//button[text()='Login']")).Submit();
+
+            //Assert.AreEqual(
+            //  "Look what's new this week!",
+            //  _driver.FindElement(By.XPath("//div[@class='quicksilver site-wrapper']//strong")).Text
+            //);
 
         }
     }
